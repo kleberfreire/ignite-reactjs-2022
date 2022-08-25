@@ -1,9 +1,9 @@
-import { ButtonContainer, TButtonVariant } from "./Button.styles";
+import { ButtonContainer, TButtonVariant } from './Button.styles'
 
 interface IButtonProps {
-  variant?: TButtonVariant;
+  variant?: TButtonVariant
 }
 
-export function Button({ variant = "primary" }: IButtonProps) {
-  return <ButtonContainer variant={variant}>Enviar</ButtonContainer>;
+export function Button({ variant = 'primary' }: IButtonProps) {
+  return <ButtonContainer variant={variant}>Enviar</ButtonContainer>
 }
