@@ -13,10 +13,12 @@ export function History() {
       <HistoryList>
         <table>
           <thead>
-            <th>Tarefa</th>
-            <th>Duração</th>
-            <th>inicio</th>
-            <th>status</th>
+            <tr>
+              <th>Tarefa</th>
+              <th>Duração</th>
+              <th>inicio</th>
+              <th>status</th>
+            </tr>
           </thead>
           <tbody>
             {cycles.map((cycle) => {
@@ -30,9 +32,7 @@ export function History() {
                       locale: ptBR,
                     })}
                   </td>
-                  {/* <td>Há cerca de 2 meses</td> */}
                   <td>
-                    {/* <Status statusColor="green">Concluído</Status> */}
                     {cycle.finishedDate && (
                       <Status statusColor="green">Concluído</Status>
                     )}
