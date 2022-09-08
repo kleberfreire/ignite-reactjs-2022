@@ -24,10 +24,9 @@ export function Countdown() {
           activeCycle.startDate,
         )
         if (secondsDifference >= totalSeconds) {
-          markCycleAsFinished()
-
           setSecondsPassed(totalSeconds)
           clearInterval(interval)
+          markCycleAsFinished()
         } else {
           setSecondsPassed(secondsDifference)
         }
