@@ -55,6 +55,30 @@
       "category": "Alimentação",
       "price": 50,
       "created_at": "2023-02-07T17:34:33.105Z"
+    },
+    {
+      "description": "dog",
+      "price": 10,
+      "category": "lanche",
+      "type": "income",
+      "created_at": "2023-02-08T14:49:01.886Z",
+      "id": 8
+    },
+    {
+      "description": "pizza",
+      "price": 20,
+      "category": "alimentação",
+      "type": "outcome",
+      "created_at": "2023-02-08T14:49:38.832Z",
+      "id": 9
+    },
+    {
+      "description": "teste com context",
+      "price": 2000,
+      "category": "teste",
+      "type": "income",
+      "created_at": "2023-02-08T16:08:10.213Z",
+      "id": 10
     }
   ]
 }
