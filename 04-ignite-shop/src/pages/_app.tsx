@@ -3,6 +3,7 @@ import { globalStyles } from '@/styles/global'
 import Head from 'next/head'
 import logoImg from '@/assets/logo.svg'
 import { Container, Header } from '@/styles/pages/app'
+import Link from 'next/link'
 
 globalStyles()
 
@@ -18,7 +19,9 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <Container>
         <Header>
-          <img src={logoImg.src} alt="Logo Ignite Shop"  />
+          <Link href='/'>
+            <img src={logoImg.src} alt="Logo Ignite Shop"  />
+          </Link>
         </Header>
 
         <Component {...pageProps} />

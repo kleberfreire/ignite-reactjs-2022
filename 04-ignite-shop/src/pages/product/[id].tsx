@@ -10,9 +10,10 @@ interface ProductProps {
   product: {
       id: string,
       name: string,
-      description: string,
       imagesUrl: string,
       price: string
+      description: string,
+      defaultPriceId: string
   }
 }
 
@@ -21,6 +22,10 @@ export default  function Product({ product }: ProductProps) {
   
   if (isFallback) {
     return <div>Loading...</div>
+  }
+
+  function handleByProduct() {
+    console.log(product.defaultPriceId)
   }
 
   return (
@@ -33,7 +38,7 @@ export default  function Product({ product }: ProductProps) {
         <span>{ product.price }</span>
 
         <p>{product.description}</p>
-        <button>Compre agora</button>
+        <button onClick={handleByProduct}>Compre agora</button>
       </ProductDetails>
     </ProductContainer>
   )
@@ -44,7 +49,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const response = await stripe.products.list()
   
   const productsID = response.data.map((product) => ({ params: { id: product.id} }))
-  console.log(productsID)
   return {
     paths: productsID,
     fallback: true
@@ -75,7 +79,8 @@ export const getStaticProps: GetStaticProps<any, { id: string }> = async ({param
         style: 'currency',
         currency: 'BRL',
         
-      }).format((price.unit_amount as number / 100))
+      }).format((price.unit_amount as number / 100)),
+      defaultPriceId: price.id
     }
     },
     revalidate: 60 * 60 * 1, // 1 hour
