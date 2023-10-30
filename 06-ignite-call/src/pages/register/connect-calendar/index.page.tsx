@@ -9,13 +9,17 @@ import { useRouter } from 'next/router'
 export default function ConnectCalendar(props) {
   const session = useSession()
   const router = useRouter()
-  console.log(session)
+
 
   const hasAuthError = !!router.query.error
   const isSignedIn = session.status === 'authenticated'
 
   async function handleConnectCalendar() {
     await signIn('google')
+  }
+
+  async function handleNavigateToNextStep() {
+    await router.push('/register/time-intervals')
   }
  
   return (
@@ -48,7 +52,7 @@ export default function ConnectCalendar(props) {
            Falha ao se conectar ao Google, verifique se você habilitou as
             permissões de acesso ao Google Calendar
         </AuthError>)}
-        <Button type="submit" disabled={!isSignedIn}>
+        <Button onClick={handleNavigateToNextStep} type="submit" disabled={!isSignedIn}>
           Próximo passo
           <ArrowRight />
         </Button>

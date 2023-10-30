@@ -15,7 +15,7 @@ export function PrismaAdapter(
         throw new Error('User ID not found on cookies.')
       }
 
-      console.log(userIdOnCookies)
+ 
 
       const prismaUser = await prisma.user.update({
         where: {
@@ -152,8 +152,7 @@ export function PrismaAdapter(
     },
 
     async createSession({ sessionToken, userId, expires }) {
-      console.log(sessionToken)
-      console.log(userId)
+
       await prisma.session.create({
         data: {
           user_id: userId,

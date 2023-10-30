@@ -54,7 +54,6 @@ export default function Register(props) {
       console.log(err)
     }
 
-    console.log(data)
   }
 
   useEffect(() => {
